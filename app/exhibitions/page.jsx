@@ -5,7 +5,7 @@ export async function generateMetadata() {
   const settings = await fetchSettings();
 
   return {
-    title: `Exhibitions | ${settings?.siteTitle}`,
+    title: `Exhibitions | ${settings?.title}`,
     description: settings?.description,
   };
 }

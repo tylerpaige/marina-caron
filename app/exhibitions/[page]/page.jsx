@@ -6,7 +6,7 @@ export async function generateMetadata() {
   console.log('Metadata', settings)
 
   return {
-    title: `Exhibitions | ${settings?.siteTitle}`,
+    title: `Exhibitions | ${settings?.title}`,
     description: settings?.description,
   };
 }

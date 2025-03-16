@@ -7,7 +7,7 @@ export async function generateMetadata({ params }) {
   const page = await fetchPage({ slug });
 
   return {
-    title: `${page.title} | ${settings?.siteTitle}`,
+    title: `${page.title} | ${settings?.title}`,
     description: settings?.description,
   };
 }

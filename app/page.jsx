@@ -6,7 +6,7 @@ export async function generateMetadata() {
   const page = await fetchPage({ slug: null });
 
   return {
-    title: `${page.title} | ${settings?.siteTitle}`,
+    title: `${page.title} | ${settings?.title}`,
     description: settings?.description,
   };
 }
