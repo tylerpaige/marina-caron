@@ -16,6 +16,13 @@
 }
 
 @layer base {
+  body {
+    @apply bg-background;
+    @apply text-foreground;
+    @apply font-sans;
+    @apply antialiased;
+  }
+  
   .markdown p {
     @apply mb-em/2 last:mb-0;
   }
@@ -32,8 +39,6 @@
   }
 
   .markdown blockquote {
-    @apply border-l-2px;
-    @apply border-l-pea-green;
     @apply pl-em;
     @apply mb-em/2;
     @apply last:mb-0;
@@ -41,7 +46,7 @@
 
   .markdown a,
   .markdown a:visited {
-    @apply text-pea-green;
+    @apply text-link;
     @apply underline;
   }
 

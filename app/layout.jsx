@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { Theme } from "./components";
 import "./globals.css";
 
 export const metadata = {
@@ -6,9 +7,12 @@ export const metadata = {
   description: "Marina Caron is a writer and curator based in New York City.",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <Theme />
+      </head>
       <body className={clsx("bg-background", "text-foreground", "font-sans")}>
         {children}
       </body>

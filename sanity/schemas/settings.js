@@ -40,5 +40,20 @@ export default defineType({
         },
       ],
     },
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'string',
+    }),
+    defineField({
+      name: 'forgroundColor',
+      title: 'Text Color',
+      type: 'string',
+    }),
+    defineField({
+      name: 'linkColor',
+      title: 'Link Color',
+      type: 'string',
+    }),
   ],
 })

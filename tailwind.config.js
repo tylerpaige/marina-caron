@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-const plugin = require("tailwindcss/plugin");
-
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -23,9 +21,9 @@ module.exports = {
     */
 
     colors: {
-      background: "rgb(var(--color-background, <alpha-value>))",
-      foreground: "rgb(var(--color-foreground, <alpha-value>))",
-      link: "rgb(var(--color-link, <alpha-value>))",
+      background: "rgb(var(--color-background)/<alpha-value>)",
+      foreground: "rgb(var(--color-foreground)/<alpha-value>)",
+      link: "rgb(var(--color-link)/<alpha-value>)",
       inherit: "inherit",
     },
     fontFamily: {
