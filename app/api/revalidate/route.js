@@ -7,7 +7,7 @@ import { revalidatePath } from 'next/cache';
 export async function POST(request) {
   try {
     const signature = request.headers[SIGNATURE_HEADER_NAME]
-    const body = await readBody(req) // Read the body into a string
+    const body = await request.text()
     if (!(await isValidSignature(body, signature, secret))) {
       return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
     }
