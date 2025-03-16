@@ -3405,6 +3405,11 @@
     valibot "0.31.1"
     xstate "^5.19.2"
 
+"@sanity/webhook@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@sanity/webhook/-/webhook-4.0.4.tgz#279d8a0f98286524026af486839762430e66d439"
+  integrity sha512-c8LmzR5Wx93zJ10ohhp0XlmPrTNSFyvPcLbNY/sN45Wj5VOngz4FbBMbX9j64sSQLt+676U6OhiVfjs1yw3YCw==
+
 "@sentry-internal/browser-utils@8.55.0":
   version "8.55.0"
   resolved "https://registry.yarnpkg.com/@sentry-internal/browser-utils/-/browser-utils-8.55.0.tgz#d89bae423edd29c39f01285c8e2d59ce9289d9a6"
