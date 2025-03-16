@@ -46,7 +46,7 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'forgroundColor',
+      name: 'foregroundColor',
       title: 'Text Color',
       type: 'string',
     }),
