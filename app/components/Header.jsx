@@ -7,13 +7,13 @@ export async function Header() {
   const settings = await fetchSettings();
 
   return (
-    <header className={clsx("pt-2")}>
-      <h1 className={clsx("text-3", "uppercase", "mb-2")}>
+    <header className={clsx("pt-1", "pl-2")}>
+      <h1 className={clsx("text-3", "uppercase", "mb-3")}>
         <Link href="/" className={clsx("text-link")}>
           {settings?.title}
         </Link>
       </h1>
-      <nav className="mb-1">
+      <nav className="mb-2">
         <ul className="list-none flex space-x-2em">
           {settings?.menuItems?.map(({ label, href, _key }) => (
             <NavItem key={_key} href={href}>

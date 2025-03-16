@@ -22,7 +22,6 @@
     @apply text-0;
     @apply font-sans;
     @apply antialiased;
-    @apply px-1;
   }
   
   .markdown p {
