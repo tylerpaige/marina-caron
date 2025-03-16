@@ -1,5 +1,5 @@
-import { Header, Pagination, Post } from "../components";
-import { fetchExhibitions } from "../utilities";
+import { Header, Pagination, Post } from "../../components";
+import { fetchExhibitions } from "../../utilities";
 
 export async function generateMetadata() {
   const settings = await fetchSettings();
