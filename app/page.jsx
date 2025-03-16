@@ -25,7 +25,7 @@ export default async function AdhocPage() {
       <main>
         {!page?.hideTitle && <h1>{page.title}</h1>}
         <div className={clsx("md:grid", "md:grid-cols-2", "md:gap-1")}>
-          <div className={clsx("markdown", "md:w-two-thirds")}>
+          <div className={clsx("markdown", "px-2", "md:w-two-thirds")}>
             <PortableText value={page.body} />
           </div>
           {Boolean(page?.media?.length) && (
