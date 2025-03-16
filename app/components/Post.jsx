@@ -15,7 +15,7 @@ export function Post({
   return (
     <div className={clsx("text-0", className)} {...args}>
       <div>
-        <h3>{title}</h3>
+        <h3 className="text-1">{title}</h3>
         {additionalInfo && additionalInfo()}
         <div
           className={clsx(
@@ -25,7 +25,6 @@ export function Post({
             "mb-em/2",
             "last:mb-0",
             "max-w-[50ch]",
-            "text-3",
             className
           )}
         >
@@ -56,7 +55,7 @@ export function Post({
         {externalUrl && (
           <Link
             href={externalUrl}
-            className="text-3 underline underline-offset-4"
+            className="underline underline-offset-[0.25em] decoration-[1px]"
           >
             More info.
           </Link>

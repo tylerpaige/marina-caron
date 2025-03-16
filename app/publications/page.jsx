@@ -1,4 +1,4 @@
-import { Header, Pagination, Post } from "../components";
+import { Header, Pagination, Post, Publication } from "../components";
 import {
   fetchPublications,
   fetchSettings,
@@ -22,13 +22,7 @@ export default async function PublicationsIndex() {
       <Header />
       <main>
         {publications.map((publication) => (
-          <Post
-            key={publication._id}
-            title={publication.title}
-            description={publication.description}
-            media={publication.media}
-            externalUrl={publication.externalUrl}
-          />
+          <Publication key={publication.slug} publication={publication} />
         ))}
         {/* Pagination */}
         {meta.totalPages > 1 && (

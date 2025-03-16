@@ -1,4 +1,4 @@
-import { Header, Pagination, Post } from "../../components";
+import { Exhibition, Header, Pagination, Post } from "../../components";
 import { fetchExhibitions, constructMetadata } from "../../utilities";
 
 export async function generateMetadata() {
@@ -19,13 +19,7 @@ export default async function ExhibitionsIndex({ params }) {
       <Header />
       <main>
         {exhibitions.map((exhibition) => (
-          <Post
-            key={exhibition._id}
-            title={exhibition.title}
-            description={exhibition.description}
-            media={exhibition.media}
-            externalUrl={exhibition.externalUrl}
-          />
+          <Exhibition key={exhibition.slug} exhibition={exhibition} />
         ))}
         {/* Pagination */}
         {meta.totalPages > 1 && (

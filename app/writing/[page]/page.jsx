@@ -1,4 +1,4 @@
-import { Header, Pagination, Post } from "../../components";
+import { Header, Pagination, Post, Writing } from "../../components";
 import {
   fetchWritings,
   fetchSettings,
@@ -23,13 +23,7 @@ export default async function WritingIndex({ params }) {
       <Header />
       <main>
         {writing.map((writing) => (
-          <Post
-            key={writing._id}
-            title={writing.title}
-            description={writing.description}
-            media={writing.media}
-            externalUrl={writing.externalUrl}
-          />
+          <Writing key={writing.slug} writing={writing} />
         ))}
         {/* Pagination */}
         {meta.totalPages > 1 && (

@@ -24,9 +24,12 @@ export default async function AdhocPage() {
       <Header />
       <main>
         {!page?.hideTitle && <h1>{page.title}</h1>}
-        <div>
+        <div className={clsx("md:grid", "md:grid-cols-2", "md:gap-1")}>
+          <div className={clsx("markdown", "md:w-two-thirds")}>
+            <PortableText value={page.body} />
+          </div>
           {Boolean(page?.media?.length) && (
-            <div className="mb-1/2">
+            <div className={clsx("md:w-one-third")}>
               <div className={clsx("flex", "flex-wrap", "gap-1/4")}>
                 {page.media.map(({ _key, size, ...media }) => (
                   // TODO: Lightbox
@@ -42,7 +45,6 @@ export default async function AdhocPage() {
               </div>
             </div>
           )}
-          <PortableText value={page.body} />
         </div>
       </main>
     </div>
