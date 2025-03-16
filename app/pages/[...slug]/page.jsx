@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
 
   return constructMetadata({
     settings,
-    title: page?.title,
+    title: !page?.hideTitle && page?.title,
     description: page?.description,
   })
 }

@@ -28,8 +28,6 @@ export async function fetchContent(
     projection,
   ].join(" ");
 
-  console.log("QUERY", query);
-
   const data = await client.fetch(query);
 
   if (!Boolean(data.length)) {

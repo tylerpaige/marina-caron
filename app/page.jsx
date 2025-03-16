@@ -11,14 +11,13 @@ export async function generateMetadata() {
 
   return constructMetadata({
     settings,
-    title: page?.title,
+    title: !page?.hideTitle && page?.title,
     description: page?.description,
   });
 }
 
 export default async function AdhocPage() {
   const page = await fetchPage({ slug: null });
-  console.log({ page})
 
   return (
     <div>
