@@ -1,13 +1,13 @@
 import { Header, Pagination, Post } from "../components";
-import { fetchSettings, fetchWritings } from "../utilities";
+import { fetchSettings, fetchWritings, constructMetadata } from "../utilities";
 
 export async function generateMetadata() {
   const settings = await fetchSettings();
 
-  return {
-    title: `Writing | ${settings?.title}`,
-    description: settings?.description,
-  };
+  return constructMetadata({
+    settings,
+    title: "Exhibitions",
+  });
 }
 
 export default async function WritingIndex() {
