@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gutter: 1rem;
+  --color-background: 239 245 248;
+  --color-foreground: 131 27 72;
+  --color-link: 212 36 112;
+}
+
+@media screen and (min-width: theme("screens.md")) {
+  :root {
+    --gutter: 2rem;
+  }
+}
+
+@layer base {
+  .markdown p {
+    @apply mb-em/2 last:mb-0;
+  }
+
+  .markdown h1,
+  .markdown h2,
+  .markdown h3,
+  .markdown h4,
+  .markdown h5,
+  .markdown h6 {
+    @apply text-7;
+    @apply font-bold;
+    @apply mb-em/2 last:mb-0;
+  }
+
+  .markdown blockquote {
+    @apply border-l-2px;
+    @apply border-l-pea-green;
+    @apply pl-em;
+    @apply mb-em/2;
+    @apply last:mb-0;
+  }
+
+  .markdown a,
+  .markdown a:visited {
+    @apply text-pea-green;
+    @apply underline;
+  }
+
+  .markdown ul {
+    @apply list-disc;
+    @apply mb-em/2;
+    @apply last:mb-0;
+  }
+
+  .markdown .block-content {
+    @apply mb-em/2;
+    @apply last:mb-0;
+  }
+}
