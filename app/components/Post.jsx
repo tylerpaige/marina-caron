@@ -14,13 +14,6 @@ export function Post({
 }) {
   return (
     <div className={clsx("text-0", className)} {...args}>
-      {JSON.stringify({
-        title,
-        description,
-        additionalInfo,
-        media,
-        externalUrl,
-      })}
       <div>
         <h3>{title}</h3>
         {additionalInfo && additionalInfo()}

@@ -232,7 +232,9 @@ export async function fetchPage({ slug = null }) {
       }
     }
   }`;
-  const page = await client.fetch(query, { slug });
+  const page = await client.fetch(query, {
+    slug: Array.isArray(slug) ? slug.join("/") : slug,
+  });
   return page;
 }
 
