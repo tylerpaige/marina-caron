@@ -6,9 +6,13 @@ import { revalidatePath } from 'next/cache';
 
 export async function POST(request) {
   try {
-    const signature = request.headers[SIGNATURE_HEADER_NAME]
+    console.log('Revalidating')
+    const signature = request.headers.get(SIGNATURE_HEADER_NAME)
     const body = await request.text()
-    if (!(await isValidSignature(body, signature, secret))) {
+    console.log({body, signature, secret})
+    const validity = await isValidSignature(body, signature, secret)
+    console.log({validity})
+    if (!validity) {
       return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
     }
 
