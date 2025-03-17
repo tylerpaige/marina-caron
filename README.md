@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# To Do
 
-## Getting Started
+- [ ] In figma, figure out the breakpoints
+- [ ] In figma, figure out the gutter value
+- [ ] In figma, figure out the type specs
+- [ ] Images need more srcs in the srcset
+- [x] Invalidation seems to not be working
+- [ ] Link to front-end from Sanity
+- [ ] Content previews in Sanity
+- [ ] Editing overlays in Next
+- [ ] Scroll snapping on post images
+- [ ] prev/next buttons on post image carousels
+- [ ] Upgrade to Next.js 15
+- [ ] Line breaks in the "additional contributors"
+- [ ] Support markdown in "additional contributors"
+- [ ] Typescript refactor, obviously
+- [ ] Use keys for Sanity API
 
-First, run the development server:
+# Set up
 
-```bash
-npm run dev
-# or
+- Install dependencies
+- Create an `.env` file, based on the `env.example`
+
+# Coding
+
+```sh
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Deploying
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Automatic deployments are set up on the `main` branch. You should run a production build before pushing to ensure the app will compile successfully.
