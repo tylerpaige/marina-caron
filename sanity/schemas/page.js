@@ -35,7 +35,6 @@ export default defineType({
       options: {
         source: "title",
         maxLength: 96,
-        isUnique: true,
         slugify: (input) =>
           input
             .toLowerCase()

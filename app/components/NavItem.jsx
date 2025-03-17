@@ -6,7 +6,6 @@ import clsx from "clsx";
 
 export function NavItem({ href, children }) {
   const pathname = usePathname()
-  console.log({pathname})
   const isActive = pathname !== "/" ? href.startsWith(pathname) : href === pathname;
 
   return (
