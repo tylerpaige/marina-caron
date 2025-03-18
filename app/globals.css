@@ -62,3 +62,24 @@
     @apply last:mb-0;
   }
 }
+
+@layer utilities {
+  .no-scrollbar{
+    -ms-overflow-style: none;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: 0px;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    width: 0;
+  }
+    
+  .no-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .no-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+  }
+}

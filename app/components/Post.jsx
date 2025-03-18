@@ -70,7 +70,7 @@ export function Post({
         </div>
 
         {Boolean(media?.length) && (
-          <div className="mt-2 px-2 overflow-auto md:mt-0 md:px-0">
+          <div className="mt-2 px-2 overflow-auto no-scrollbar md:mt-0 md:px-0">
             <div className={clsx("flex", "gap-4")}>
               {media.map(({ _key, size, ...media }) => (
                 // TODO: Lightbox
