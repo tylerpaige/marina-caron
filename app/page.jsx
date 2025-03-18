@@ -5,6 +5,9 @@ import Link from "next/link";
 import { Header } from "./components";
 import { fetchPage, fetchSettings, constructMetadata } from "./utilities";
 
+export const dynamic = process.env.NODE_ENV === 'development' ? 'force-dynamic' : 'auto';
+export const revalidate = process.env.NODE_ENV === 'development' ? 0 : 60;
+
 export async function generateMetadata() {
   const settings = await fetchSettings();
   const page = await fetchPage({ slug: null });

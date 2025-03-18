@@ -1,16 +1,12 @@
-import { PortableText } from "@portabletext/react"
+import { PortableText } from "@portabletext/react";
 import { Post } from "./Post";
 import { renderDateDisplay } from "../utilities";
 
 function formatLocationAndDate(exhibition) {
   const { location, startDate, endDate, displayDate } = exhibition;
-  if (!location && !startDate && !endDate) {
-    return null;
-  } else if (location && !startDate && !endDate) {
-    return exhibition.location;
-  } else {
-    return `${location} ${renderDateDisplay({ displayDate, startDate, endDate })}`;
-  }
+  return [location, renderDateDisplay({ displayDate, startDate, endDate })]
+    .filter(Boolean)
+    .join(", ");
 }
 
 function renderAdditionalInfo(exhibition) {
@@ -30,7 +26,6 @@ function renderAdditionalInfo(exhibition) {
 }
 
 export function Exhibition({ exhibition }) {
-  console.log({ exhibition });
   return (
     <Post
       title={exhibition.title}

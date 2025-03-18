@@ -1,6 +1,9 @@
 import { Exhibition, Header, Pagination, Post } from "../../components";
 import { fetchExhibitions, constructMetadata } from "../../utilities";
 
+export const dynamic = process.env.NODE_ENV === 'development' ? 'force-dynamic' : 'auto';
+export const revalidate = process.env.NODE_ENV === 'development' ? 0 : 60;
+
 export async function generateMetadata() {
   const settings = await fetchSettings();
   
