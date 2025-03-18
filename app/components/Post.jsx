@@ -9,6 +9,7 @@ export function Post({
   additionalInfo,
   media,
   externalUrl,
+  footer,
   className,
   ...args
 }) {
@@ -57,8 +58,9 @@ export function Post({
               }}
             />
           </div>
+          {footer && footer()}
           {externalUrl && (
-            <p>
+            <p className="mb-em/2 last:mb-0">
               <Link
                 href={externalUrl}
                 className="underline underline-offset-[0.25em] decoration-[1px] uppercase -text-2"

@@ -14,7 +14,9 @@ function renderAdditionalInfo(exhibition) {
   const { team } = exhibition;
   return (
     <>
-      {formattedLocationAndDate && <p className="mb-em/2">{formattedLocationAndDate}</p>}
+      {formattedLocationAndDate && (
+        <p className="mb-em/2">{formattedLocationAndDate}</p>
+      )}
       {/* Render `team` if it's present with markdown */}
       {team && (
         <div className="mb-em/2 markdown">
@@ -33,6 +35,13 @@ export function Exhibition({ exhibition }) {
       description={exhibition.description}
       media={exhibition.media}
       externalUrl={exhibition.externalUrl}
+      footer={() =>
+        exhibition.photoCredits && (
+          <div className="-text-2 uppercase markdown mb-em/2 last:mb-0">
+            <PortableText value={exhibition.photoCredits} />
+          </div>
+        )
+      }
     />
   );
 }

@@ -8,7 +8,9 @@ export function Publication({ publication }) {
       title={publication.title}
       additionalInfo={() => (
         <>
-          {publication.publisher && <p className="mb-em/2">{publication.publisher}</p>}
+          {publication.publisher && (
+            <p className="mb-em/2">{publication.publisher}</p>
+          )}
           {(publication.displayDate || publication.date) && (
             <p className="mb-em/2">
               {renderDateDisplay({
@@ -27,6 +29,13 @@ export function Publication({ publication }) {
       description={publication.description}
       media={publication.media}
       externalUrl={publication.externalUrl}
+      footer={() =>
+        publication.photoCredits && (
+          <div className="-text-2 uppercase markdown mb-em/2 last:mb-0">
+            <PortableText value={publication.photoCredits} />
+          </div>
+        )
+      }
     />
   );
 }

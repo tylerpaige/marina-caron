@@ -46,6 +46,11 @@ export default defineType({
       type: "blockContent",
     }),
     defineField({
+      name: "photoCredits",
+      title: "Photo Credits",
+      type: "blockContent",
+    }),
+    defineField({
       name: "media",
       title: "Media",
       type: "array",

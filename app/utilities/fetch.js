@@ -72,21 +72,9 @@ export async function fetchExhibitions({ page } = { page: 1 }) {
   endDate,
   displayDate,
   externalUrl,
+  photoCredits,
+  description,
   media[]{
-    ...,
-    asset->{
-      url,
-      metadata{
-        dimensions{
-          width,
-          height,
-          aspectRatio
-        }
-      },
-      "_key": _id
-    }
-  },
-  description[]{
     ...,
     asset->{
       url,
@@ -170,21 +158,9 @@ export async function fetchPublications({ page } = { page: 1 }) {
       date,
       displayDate,
       externalUrl,
+      photoCredits,
+      description,
       media[]{
-        ...,
-        asset->{
-          url,
-          metadata{
-            dimensions{
-              width,
-              height,
-              aspectRatio
-            }
-          },
-          "_key": _id
-        }
-      },
-      description[]{
         ...,
         asset->{
           url,
