@@ -41,6 +41,11 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "description",
+      title: "description",
+      type: "blockContent",
+    }),
+    defineField({
       name: "media",
       title: "Media",
       type: "array",
@@ -49,9 +54,17 @@ export default defineType({
       ],
     }),
     defineField({
-      name: "description",
-      title: "description",
-      type: "blockContent",
+      name: "files",
+      title: "Files",
+      description: "These files will not be displayed on the front end but can be used for archiving purposes. You can copy the file's URL if you need to share it.",
+      type: "array",
+      of: [
+        {
+          type: 'file',
+          title: 'File',
+          options: { accept: '*/*' },
+        },
+      ],
     }),
   ],
 
