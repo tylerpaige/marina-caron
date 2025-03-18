@@ -55,5 +55,10 @@ export default defineType({
       title: 'Link Color',
       type: 'string',
     }),
+    defineField({
+      name: 'baseFontSize',
+      title: 'Base Font Size',
+      type: 'number',
+    }),
   ],
 })

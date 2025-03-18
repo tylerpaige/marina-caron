@@ -114,6 +114,7 @@ export async function fetchWritings({ page } = { page: 1 }) {
   _id,
   title,
   contributors,
+  publisher,
   date,
   displayDate,
   type,

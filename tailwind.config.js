@@ -60,15 +60,14 @@ module.exports = {
       const fontSizes = {};
       Array.from({ length: numberOfSmallSizes }).forEach((_, i) => {
         const key = -1 * (numberOfSmallSizes - i);
-        const fontSize = `${base * Math.pow(
-          scale,
-          -1 * (numberOfSmallSizes - i)
-        ).toFixed(3)}rem`;
+        const coefficient = Math.pow(scale, -1 * (numberOfSmallSizes - i)).toFixed(3);
+        const fontSize = `calc(var(--base-font-size) * ${coefficient})`;
         fontSizes[key] = [fontSize, lineHeight];
       });
       Array.from({ length: numberOfLargeSizes }).forEach((_, i) => {
         const key = i;
-        const fontSize = `${base * Math.pow(scale, i).toFixed(3)}rem`;
+        const coefficient = Math.pow(scale, i).toFixed(3);
+        const fontSize = `calc(var(--base-font-size) * ${coefficient})`;
         fontSizes[key] = [fontSize, lineHeight];
       });
       fontSizes["DEFAULT"] = fontSizes[0];

@@ -11,6 +11,11 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "publisher",
+      title: "Publisher",
+      type: "string",
+    }),
+    defineField({
       name: "contributors",
       title: "Contributors",
       type: "blockContent",

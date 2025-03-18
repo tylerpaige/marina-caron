@@ -2,13 +2,22 @@ import { fetchSettings } from "../utilities";
 
 export async function Theme() {
   const defaultTheme = {
+    baseFontSize: 20,
     backgroundColor: "#eff5f8",
     foregroundColor: "#831b48",
     linkColor: "#d42470",
   };
 
   // Fetch settings from Sanity on the server
-  const settings = (await fetchSettings()) || defaultTheme;
+  let settings;
+  try {
+    settings = await fetchSettings();
+  } catch (error) {
+    console.error(error);
+    settings = defaultTheme;
+  }
+
+  console.log({settings})
 
   // Helper to convert hex to rgb string
   const hexToRgb = (hex) => {
@@ -20,9 +29,13 @@ export async function Theme() {
     return `${r} ${g} ${b}`;
   };
 
+  const pxToRem = (px) =>
+    `${(px / 16).toFixed(3).replace(/\.?0+$/, "")}rem`;
+
   // Build the custom CSS
   const customCss = `
     :root {
+      --base-font-size: ${pxToRem(settings.baseFontSize)};
       --color-background: ${hexToRgb(settings.backgroundColor)};
       --color-foreground: ${hexToRgb(settings.foregroundColor)};
       --color-link: ${hexToRgb(settings.linkColor)};
