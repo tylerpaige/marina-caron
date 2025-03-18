@@ -1,4 +1,4 @@
-import { Header, Pagination, Post, Publication } from "../components";
+import { Header, Publication, InfinitePublicationList } from "../components";
 import {
   fetchPublications,
   fetchSettings,
@@ -23,19 +23,11 @@ export default async function PublicationsIndex() {
   return (
     <div>
       <Header />
-      <main>
+      <main>    
         {publications.map((publication) => (
           <Publication key={publication.slug} publication={publication} />
         ))}
-        {/* Pagination */}
-        {meta.totalPages > 1 && (
-          <Pagination
-            currentPage={1}
-            totalPages={meta.totalPages}
-            basePath="/publications"
-            windowSize={3}
-          />
-        )}
+        {meta.totalPages > 1 && <InfinitePublicationList />}
       </main>
     </div>
   );

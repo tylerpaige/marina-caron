@@ -1,8 +1,13 @@
-import { Exhibition, Header, Pagination } from "../components";
-import { fetchExhibitions, fetchSettings, constructMetadata } from "../utilities";
+import { Exhibition, Header, InfiniteExhibitionList } from "../components";
+import {
+  fetchExhibitions,
+  fetchSettings,
+  constructMetadata,
+} from "../utilities";
 
-export const dynamic = process.env.NODE_ENV === 'development' ? 'force-dynamic' : 'auto';
-export const revalidate = process.env.NODE_ENV === 'development' ? 0 : 60;
+export const dynamic =
+  process.env.NODE_ENV === "development" ? "force-dynamic" : "auto";
+export const revalidate = process.env.NODE_ENV === "development" ? 0 : 60;
 
 export async function generateMetadata() {
   const settings = await fetchSettings();
@@ -10,7 +15,7 @@ export async function generateMetadata() {
   return constructMetadata({
     settings,
     title: "Exhibitions",
-  })
+  });
 }
 
 export default async function ExhibitionsIndex() {
@@ -23,15 +28,7 @@ export default async function ExhibitionsIndex() {
         {exhibitions.map((exhibition) => (
           <Exhibition key={exhibition._id} exhibition={exhibition} />
         ))}
-        {/* Pagination */}
-        {meta.totalPages > 1 && (
-          <Pagination
-            currentPage={1}
-            totalPages={meta.totalPages}
-            basePath="/exhibitions"
-            windowSize={3}
-          />
-        )}
+        {meta.totalPages > 1 && <InfiniteExhibitionList />}
       </main>
     </div>
   );

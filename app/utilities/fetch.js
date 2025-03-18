@@ -1,11 +1,10 @@
-// sanity.js
 import { client } from "../../sanity/lib/client";
 
-const PER = 6;
+const DEFAULT_PER = 6;
 
 // uses GROQ to query content: https://www.sanity.io/docs/groq
 export async function fetchContent(
-  { page, type, order, projection, per } = { page: 1, per: PER }
+  { page, type, order, projection, per } = { page: 1, per: DEFAULT_PER }
 ) {
   const filters = [];
   filters.push(`_type == "${type}"`);
@@ -33,8 +32,10 @@ export async function fetchContent(
   if (!Boolean(data.length)) {
     return {
       data: [],
-      totalPages: 0,
-      currentPage: 0,
+      meta: {
+        totalPages: 0,
+        currentPage: 0,
+      },
       error: {
         status: "404",
         type: "Not Found",
@@ -45,7 +46,7 @@ export async function fetchContent(
 
   const totalPages = await client
     .fetch(`count(${filterStatement})`)
-    .then((count) => Math.max(Math.ceil(count / PER), 1));
+    .then((count) => Math.max(Math.ceil(count / per), 1));
 
   return {
     data,
@@ -61,7 +62,7 @@ export async function fetchExhibitions({ page } = { page: 1 }) {
     page,
     type: "exhibition",
     order: `endDate desc`,
-    per: 6,
+    per: 5,
     projection: `{
   _id,
   title,
@@ -108,7 +109,7 @@ export async function fetchWritings({ page } = { page: 1 }) {
     page,
     type: "writing",
     order: `date desc`,
-    per: 6,
+    per: 10,
     projection: `{
   _id,
   title,
@@ -159,7 +160,7 @@ export async function fetchPublications({ page } = { page: 1 }) {
     page,
     type: "publication",
     order: `date desc`,
-    per: 6,
+    per: 5,
     projection: `{
       _id,
       title,

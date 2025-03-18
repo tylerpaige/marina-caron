@@ -1,4 +1,4 @@
-import { Header, Pagination, Post, Writing } from "../components";
+import { Header, Writing, InfiniteWritingList } from "../components";
 import { fetchSettings, fetchWritings, constructMetadata } from "../utilities";
 
 export const dynamic = process.env.NODE_ENV === 'development' ? 'force-dynamic' : 'auto';
@@ -23,15 +23,7 @@ export default async function WritingIndex() {
         {writing.map((writing) => (
           <Writing key={writing.slug} writing={writing} />
         ))}
-        {/* Pagination */}
-        {meta.totalPages > 1 && (
-          <Pagination
-            currentPage={1}
-            totalPages={meta.totalPages}
-            basePath="/writing"
-            windowSize={3}
-          />
-        )}
+        {meta.totalPages > 1 && <InfiniteWritingList />}
       </main>
     </div>
   );
