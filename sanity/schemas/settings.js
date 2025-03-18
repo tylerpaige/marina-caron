@@ -66,5 +66,21 @@ export default defineType({
       title: 'Line Height',
       type: 'number',
     }),
+    defineField({
+      name: 'fontFamily',
+      title: 'Font Family',
+      type: 'string',
+      description: "Be careful! You can only use fonts that are available on the user's computer. Be sure to use a comma separated list of fallback fonts, which probably will end with “sans-serif”.",
+    }),
+    defineField({
+      name: 'customCss',
+      title: 'Custom CSS',
+      type: 'text',
+    }),
+    defineField({
+      name: 'customHtml',
+      title: 'Custom HTML',
+      type: 'text',
+    })
   ],
 })

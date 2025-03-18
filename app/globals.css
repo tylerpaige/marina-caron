@@ -5,6 +5,7 @@
 :root {
   --base-font-size: 0.875rem;
   --line-height: 1.25;
+  --font-family: 'Arial', sans-serif;
   --gutter: 1rem;
   --color-background: 239 245 248;
   --color-foreground: 131 27 72;
@@ -22,7 +23,7 @@
     @apply bg-background;
     @apply text-foreground;
     @apply text-0;
-    @apply font-sans;
+    @apply font-default-family;
     @apply antialiased;
   }
   

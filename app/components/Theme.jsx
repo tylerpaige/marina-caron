@@ -4,9 +4,12 @@ export async function Theme() {
   const defaultTheme = {
     baseFontSize: 20,
     lineHeight: 1.25,
+    fontFamily: "Arial, sans-serif",
     backgroundColor: "#eff5f8",
     foregroundColor: "#831b48",
     linkColor: "#d42470",
+    customCss: "",
+    customHtml: "",
   };
 
   // Fetch settings from Sanity on the server
@@ -36,15 +39,21 @@ export async function Theme() {
   // Build the custom CSS
   const customCss = `
     :root {
-      --base-font-size: ${pxToRem(settings.baseFontSize)};
-      --line-height: ${settings.lineHeight};
-      --color-background: ${hexToRgb(settings.backgroundColor)};
-      --color-foreground: ${hexToRgb(settings.foregroundColor)};
-      --color-link: ${hexToRgb(settings.linkColor)};
+      --base-font-size: ${pxToRem(settings.baseFontSize || defaultTheme.baseFontSize)};
+      --line-height: ${settings.lineHeight || defaultTheme.lineHeight};
+      --font-family: ${settings.fontFamily || defaultTheme.fontFamily};
+      --color-background: ${hexToRgb(settings.backgroundColor || defaultTheme.backgroundColor)};
+      --color-foreground: ${hexToRgb(settings.foregroundColor || defaultTheme.foregroundColor)};
+      --color-link: ${hexToRgb(settings.linkColor || defaultTheme.linkColor)};
     }
   `;
 
   return (
-    <style dangerouslySetInnerHTML={{ __html: customCss }} />
+    <>
+      <style dangerouslySetInnerHTML={{ __html: customCss + settings.customCss }} />
+      {settings.customHtml && (
+        <div dangerouslySetInnerHTML={{ __html: settings.customHtml }} />
+      )}
+    </>
   );
 }

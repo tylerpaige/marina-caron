@@ -27,7 +27,7 @@ module.exports = {
       inherit: "inherit",
     },
     fontFamily: {
-      sans: ["Arial", "sans-serif"],
+      'default-family': ["var(--font-family)"],
     },
     /*
       {
