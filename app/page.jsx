@@ -19,7 +19,7 @@ export async function generateMetadata() {
   });
 }
 
-export default async function AdhocPage() {
+export default async function Homepage() {
   const page = await fetchPage({ slug: null });
 
   return (
@@ -27,13 +27,12 @@ export default async function AdhocPage() {
       <Header />
       <main>
         {!page?.hideTitle && <h1>{page.title}</h1>}
-        <div className={clsx("md:grid", "md:grid-cols-2", "md:gap-1")}>
-          <div className={clsx("markdown", "px-2", "md:w-two-thirds")}>
+        <div className="px-2">
+          <div className="markdown mb-2 md:max-w-16">
             <PortableText value={page.body} />
           </div>
           {Boolean(page?.media?.length) && (
-            <div className={clsx("md:w-one-third")}>
-              <div className={clsx("flex", "flex-wrap", "gap-1/4")}>
+            <div>
                 {page.media.map(({ _key, size, ...media }) => (
                   // TODO: Lightbox
                   <Link href={media.asset?.url} key={_key}>
@@ -42,10 +41,10 @@ export default async function AdhocPage() {
                       width={media.asset?.metadata?.dimensions?.width}
                       height={media.asset?.metadata?.dimensions?.height}
                       alt={media.alt}
+                      className="w-full max-w-8"
                     />
                   </Link>
                 ))}
-              </div>
             </div>
           )}
         </div>
