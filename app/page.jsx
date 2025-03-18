@@ -41,6 +41,7 @@ export default async function Homepage() {
                       width={media.asset?.metadata?.dimensions?.width}
                       height={media.asset?.metadata?.dimensions?.height}
                       alt={media.alt}
+                      sizes="100vw"
                       className="w-full max-w-8"
                     />
                   </Link>

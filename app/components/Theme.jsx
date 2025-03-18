@@ -22,8 +22,6 @@ export async function Theme() {
     settings = defaultTheme;
   }
 
-  console.log({settings})
-
   // Helper to convert hex to rgb string
   const hexToRgb = (hex) => {
     if (!hex) return "0 0 0";

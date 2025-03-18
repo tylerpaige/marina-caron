@@ -83,6 +83,7 @@ export function Post({
                       width={media.asset?.metadata?.dimensions?.width}
                       height={media.asset?.metadata?.dimensions?.height}
                       alt={media.alt}
+                      sizes="(min-width: 768px) 50vw, 100vw"
                       className="h-10 w-auto"
                     />
                   </Link>
