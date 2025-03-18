@@ -1,4 +1,8 @@
 export function formatDate(date) {
+  if (!date) {
+    return null;
+  }
+
   const d = new Date(date);
   return d.toLocaleDateString("en-US", {
     month: "long",
@@ -35,3 +39,13 @@ export function formatDateRange(startDate, endDate) {
     return `${formatDate(startDate)} – ${formatDate(endDate)}`;
   }
 };
+
+export function renderDateDisplay({ displayDate, startDate, endDate, date }) {
+  if (displayDate) {
+    return displayDate;
+  } else if (date) {
+    return formatDate(date);
+  } else {
+    return formatDateRange(startDate, endDate);
+  }
+}

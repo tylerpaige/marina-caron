@@ -69,6 +69,7 @@ export async function fetchExhibitions({ page } = { page: 1 }) {
   location,
   startDate,
   endDate,
+  displayDate,
   externalUrl,
   media[]{
     ...,
@@ -115,6 +116,7 @@ export async function fetchWritings({ page } = { page: 1 }) {
   publisher,
   contributors,
   date,
+  displayDate,
   externalUrl,
   media[]{
     ...,
@@ -161,6 +163,7 @@ export async function fetchPublications({ page } = { page: 1 }) {
       publisher,
       contributors,
       date,
+      displayDate,
       externalUrl,
       media[]{
         ...,

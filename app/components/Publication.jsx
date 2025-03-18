@@ -1,5 +1,5 @@
 import { Post } from "./Post";
-import { formatDate } from "../utilities";
+import { renderDateDisplay } from "../utilities";
 
 export function Publication({ publication }) {
   return (
@@ -7,9 +7,16 @@ export function Publication({ publication }) {
       title={publication.title}
       additionalInfo={() => (
         <>
-          {publication.contributors && (<p>{publication.contributors}</p>)}
-          {publication.publisher && (<p>{publication.publisher}</p>)}
-          {publication.date && (<p>{formatDate(publication.date)}</p>)}
+          {publication.contributors && <p>{publication.contributors}</p>}
+          {publication.publisher && <p>{publication.publisher}</p>}
+          {(publication.displayDate || publication.date) && (
+            <p>
+              {renderDateDisplay({
+                date: publication.date,
+                displayDate: publication.displayDate,
+              })}
+            </p>
+          )}
         </>
       )}
       description={publication.description}

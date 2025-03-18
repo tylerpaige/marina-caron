@@ -1,19 +1,22 @@
 import { Post } from "./Post";
-import { formatDateRange } from "../utilities";
+import { renderDateDisplay } from "../utilities";
+
+function formatLocationAndDate(exhibition) {
+  const { location, startDate, endDate, displayDate } = exhibition;
+  if (!location && !startDate && !endDate) {
+    return null;
+  } else if (location && !startDate && !endDate) {
+    return exhibition.location;
+  } else {
+    return `${location} ${renderDateDisplay({ displayDate, startDate, endDate })}`;
+  }
+}
 
 export function Exhibition({ exhibition }) {
   return (
     <Post
       title={exhibition.title}
-      additionalInfo={() => {
-        if (!exhibition.location && !exhibition.startDate && !exhibition.endDate) {
-          return null;
-        } else if (exhibition.location && !exhibition.startDate && !exhibition.endDate) {
-          return <>{exhibition.location}</>;
-        } else {
-          return <>{`${exhibition.location} ${formatDateRange(exhibition.startDate, exhibition.endDate)}`} </>;
-        }
-      }}
+      additionalInfo={() => <>{formatLocationAndDate(exhibition)}</>}
       description={exhibition.description}
       media={exhibition.media}
       externalUrl={exhibition.externalUrl}

@@ -36,6 +36,11 @@ export default defineType({
       type: "datetime",
     }),
     defineField({
+      name: "displayDate",
+      title: "Display Date",
+      type: "string",
+    }),
+    defineField({
       name: "externalUrl",
       title: "External URL",
       type: "string",
