@@ -1,3 +1,4 @@
+import { PortableText } from "@portabletext/react"
 import { Post } from "./Post";
 import { renderDateDisplay } from "../utilities";
 
@@ -12,11 +13,28 @@ function formatLocationAndDate(exhibition) {
   }
 }
 
+function renderAdditionalInfo(exhibition) {
+  const formattedLocationAndDate = formatLocationAndDate(exhibition);
+  const { team } = exhibition;
+  return (
+    <>
+      {formattedLocationAndDate && <p>{formattedLocationAndDate}</p>}
+      {/* Render `team` if it's present with markdown */}
+      {team && (
+        <div className="markdown">
+          <PortableText value={team} />
+        </div>
+      )}
+    </>
+  );
+}
+
 export function Exhibition({ exhibition }) {
+  console.log({ exhibition });
   return (
     <Post
       title={exhibition.title}
-      additionalInfo={() => <>{formatLocationAndDate(exhibition)}</>}
+      additionalInfo={() => renderAdditionalInfo(exhibition)}
       description={exhibition.description}
       media={exhibition.media}
       externalUrl={exhibition.externalUrl}

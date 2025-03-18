@@ -16,6 +16,11 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "team",
+      title: "Team",
+      type: "blockContent",
+    }),
+    defineField({
       name: "startDate",
       title: "Start Date",
       type: "date",

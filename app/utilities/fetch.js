@@ -66,6 +66,7 @@ export async function fetchExhibitions({ page } = { page: 1 }) {
   _id,
   title,
   location,
+  team,
   startDate,
   endDate,
   displayDate,
