@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { Analytics } from "@vercel/analytics/react"
 import { Theme } from "./components";
 import "./globals.css";
 
@@ -12,6 +13,7 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <head>
         <Theme />
+        <Analytics />
       </head>
       <body className={clsx("bg-background", "text-foreground", "font-sans")}>
         {children}
