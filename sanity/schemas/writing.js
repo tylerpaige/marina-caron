@@ -31,17 +31,25 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "type",
+      title: "Type",
+      type: "string",
+    }),
+    defineField({
       name: "externalUrl",
       title: "External URL",
       type: "string",
     }),
     defineField({
+      name: "pdf",
+      title: "PDF",
+      type: "file",
+    }),
+    defineField({
       name: "media",
       title: "Media",
       type: "array",
-      of: [
-        { type: "image", title: "Image" },
-      ],
+      of: [{ type: "image", title: "Image" }],
     }),
     defineField({
       name: "description",

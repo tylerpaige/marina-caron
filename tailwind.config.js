@@ -54,20 +54,21 @@ module.exports = {
     fontSize: (() => {
       const numberOfSmallSizes = 3;
       const numberOfLargeSizes = 15;
-      const base = 1.125;
+      const base = 0.875;
+      const scale = 1.125;
       const lineHeight = 1.25;
       const fontSizes = {};
       Array.from({ length: numberOfSmallSizes }).forEach((_, i) => {
-        const key = numberOfSmallSizes - (-1 * i - 1);
-        const fontSize = `${Math.pow(
-          base,
+        const key = -1 * (numberOfSmallSizes - i);
+        const fontSize = `${base * Math.pow(
+          scale,
           -1 * (numberOfSmallSizes - i)
         ).toFixed(3)}rem`;
         fontSizes[key] = [fontSize, lineHeight];
       });
       Array.from({ length: numberOfLargeSizes }).forEach((_, i) => {
         const key = i;
-        const fontSize = `${Math.pow(base, i).toFixed(3)}rem`;
+        const fontSize = `${base * Math.pow(scale, i).toFixed(3)}rem`;
         fontSizes[key] = [fontSize, lineHeight];
       });
       fontSizes["DEFAULT"] = fontSizes[0];

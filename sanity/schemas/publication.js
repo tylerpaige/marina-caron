@@ -16,11 +16,6 @@ export default defineType({
       type: "text",
     }),
     defineField({
-      name: "publisher",
-      title: "Publisher",
-      type: "string",
-    }),
-    defineField({
       name: "date",
       title: "Publication Date",
       type: "date",

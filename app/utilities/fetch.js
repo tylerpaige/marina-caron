@@ -112,11 +112,16 @@ export async function fetchWritings({ page } = { page: 1 }) {
     projection: `{
   _id,
   title,
-  publisher,
   contributors,
   date,
   displayDate,
+  type,
   externalUrl,
+  pdf{
+    asset->{
+      url
+    }
+  },
   media[]{
     ...,
     asset->{
