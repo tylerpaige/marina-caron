@@ -65,7 +65,6 @@ export async function fetchExhibitions({ page } = { page: 1 }) {
     projection: `{
   _id,
   title,
-  slug,
   location,
   startDate,
   endDate,
@@ -112,7 +111,6 @@ export async function fetchWritings({ page } = { page: 1 }) {
     projection: `{
   _id,
   title,
-  slug,
   publisher,
   contributors,
   date,
@@ -159,7 +157,6 @@ export async function fetchPublications({ page } = { page: 1 }) {
     projection: `{
       _id,
       title,
-      slug,
       publisher,
       contributors,
       date,
