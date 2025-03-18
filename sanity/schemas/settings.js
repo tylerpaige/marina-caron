@@ -73,6 +73,12 @@ export default defineType({
       description: "Be careful! You can only use fonts that are available on the user's computer. Be sure to use a comma separated list of fallback fonts, which probably will end with “sans-serif”.",
     }),
     defineField({
+      name: 'baseSpacer',
+      title: 'Base Spacer',
+      description: 'This is the base spacing unit for the site. It is used to calculate the spacing between elements.',
+      type: 'number',
+    }),
+    defineField({
       name: 'customCss',
       title: 'Custom CSS',
       type: 'text',
