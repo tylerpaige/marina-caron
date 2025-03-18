@@ -46,12 +46,6 @@ export default defineType({
       type: "file",
     }),
     defineField({
-      name: "media",
-      title: "Media",
-      type: "array",
-      of: [{ type: "image", title: "Image" }],
-    }),
-    defineField({
       name: "description",
       title: "description",
       type: "blockContent",
