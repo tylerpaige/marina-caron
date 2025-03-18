@@ -18,12 +18,12 @@ export default defineType({
     defineField({
       name: "startDate",
       title: "Start Date",
-      type: "datetime",
+      type: "date",
     }),
     defineField({
       name: "endDate",
       title: "End Date",
-      type: "datetime",
+      type: "date",
     }),
     defineField({
       name: "displayDate",

@@ -23,7 +23,7 @@ export default defineType({
     defineField({
       name: "date",
       title: "Publication Date",
-      type: "datetime",
+      type: "date",
     }),
     defineField({
       name: "displayDate",
