@@ -13,16 +13,21 @@ export function Post({
   ...args
 }) {
   return (
-    <div className={clsx("text-0", "md:overflow-auto", className)} {...args}>
-      <div className="md:grid md:grid-cols-[50ch,1fr] md:gap-2">
-        <div className="max-w-[50ch] bg-background z-10 relative md:sticky md:top-0 md:left-0 md:px-2">
-          <h3 className="text-1">{title}</h3>
+    <div
+      className={clsx(
+        "text-0",
+        "mb-3",
+        className
+      )}
+      {...args}
+    >
+      <div className="md:grid md:grid-cols-[auto,1fr]">
+        <div className="w-full bg-background z-10 relative px-2 md:max-w-16">
+          <h3 className="font-bold mb-em/2">{title}</h3>
           {additionalInfo && additionalInfo()}
           <div
             className={clsx(
               "markdown",
-              "mt-em/4",
-              "first:mt-0",
               "mb-em/2",
               "last:mb-0",
               className
@@ -56,7 +61,7 @@ export function Post({
             <p>
               <Link
                 href={externalUrl}
-                className="underline underline-offset-[0.25em] decoration-[1px]"
+                className="underline underline-offset-[0.25em] decoration-[1px] uppercase -text-2"
               >
                 More info.
               </Link>
@@ -65,8 +70,8 @@ export function Post({
         </div>
 
         {Boolean(media?.length) && (
-          <div className="">
-            <div className={clsx("flex", "gap-4", "pr-2")}>
+          <div className="mt-2 px-2 overflow-auto md:mt-0 md:px-0">
+            <div className={clsx("flex", "gap-4")}>
               {media.map(({ _key, size, ...media }) => (
                 // TODO: Lightbox
                 <div key={_key} className="relative shrink-0 grow-0">
@@ -76,7 +81,7 @@ export function Post({
                       width={media.asset?.metadata?.dimensions?.width}
                       height={media.asset?.metadata?.dimensions?.height}
                       alt={media.alt}
-                      className="max-w-lg max-h-lg h-full object-contain object-center"
+                      className="h-10 w-auto"
                     />
                   </Link>
                 </div>

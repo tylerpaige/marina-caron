@@ -14,10 +14,10 @@ function renderAdditionalInfo(exhibition) {
   const { team } = exhibition;
   return (
     <>
-      {formattedLocationAndDate && <p>{formattedLocationAndDate}</p>}
+      {formattedLocationAndDate && <p className="mb-em/2">{formattedLocationAndDate}</p>}
       {/* Render `team` if it's present with markdown */}
       {team && (
-        <div className="markdown">
+        <div className="mb-em/2 markdown">
           <PortableText value={team} />
         </div>
       )}

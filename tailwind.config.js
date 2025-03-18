@@ -77,6 +77,7 @@ module.exports = {
     height: ({ theme }) => ({
       auto: "auto",
       ...theme("spacing"),
+      ...theme("keywordSizes"),
       half: "50%",
       third: "33.333333%",
       "two-thirds": "66.666667%",
