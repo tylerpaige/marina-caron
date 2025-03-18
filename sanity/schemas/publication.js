@@ -13,7 +13,7 @@ export default defineType({
     defineField({
       name: "contributors",
       title: "Contributors",
-      type: "text",
+      type: "blockContent",
     }),
     defineField({
       name: "date",

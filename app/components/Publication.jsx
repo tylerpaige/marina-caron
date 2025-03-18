@@ -1,5 +1,6 @@
 import { Post } from "./Post";
 import { renderDateDisplay } from "../utilities";
+import { PortableText } from "@portabletext/react";
 
 export function Publication({ publication }) {
   return (
@@ -7,15 +8,19 @@ export function Publication({ publication }) {
       title={publication.title}
       additionalInfo={() => (
         <>
-          {publication.contributors && <p>{publication.contributors}</p>}
-          {publication.publisher && <p>{publication.publisher}</p>}
+          {publication.publisher && <p className="mb-em/2">{publication.publisher}</p>}
           {(publication.displayDate || publication.date) && (
-            <p>
+            <p className="mb-em/2">
               {renderDateDisplay({
                 date: publication.date,
                 displayDate: publication.displayDate,
               })}
             </p>
+          )}
+          {publication.contributors && (
+            <div className="markdown mb-em/2">
+              <PortableText value={publication.contributors} />
+            </div>
           )}
         </>
       )}

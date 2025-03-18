@@ -13,7 +13,7 @@ export async function generateMetadata() {
 
   return constructMetadata({
     settings,
-    title: "Exhibitions",
+    title: "Publications",
   });
 }
 
