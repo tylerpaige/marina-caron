@@ -3,6 +3,7 @@ import { fetchSettings } from "../utilities";
 export async function Theme() {
   const defaultTheme = {
     baseFontSize: 20,
+    lineHeight: 1.25,
     backgroundColor: "#eff5f8",
     foregroundColor: "#831b48",
     linkColor: "#d42470",
@@ -36,6 +37,7 @@ export async function Theme() {
   const customCss = `
     :root {
       --base-font-size: ${pxToRem(settings.baseFontSize)};
+      --line-height: ${settings.lineHeight};
       --color-background: ${hexToRgb(settings.backgroundColor)};
       --color-foreground: ${hexToRgb(settings.foregroundColor)};
       --color-link: ${hexToRgb(settings.linkColor)};

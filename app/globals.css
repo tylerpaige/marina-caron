@@ -4,6 +4,7 @@
 
 :root {
   --base-font-size: 0.875rem;
+  --line-height: 1.25;
   --gutter: 1rem;
   --color-background: 239 245 248;
   --color-foreground: 131 27 72;

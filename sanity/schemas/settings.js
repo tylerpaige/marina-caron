@@ -58,6 +58,12 @@ export default defineType({
     defineField({
       name: 'baseFontSize',
       title: 'Base Font Size',
+      description: 'This is the font-size of normal text. The rest of the font-sizes are based on this value.',
+      type: 'number',
+    }),
+    defineField({
+      name: 'lineHeight',
+      title: 'Line Height',
       type: 'number',
     }),
   ],
