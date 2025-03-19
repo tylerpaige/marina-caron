@@ -19,7 +19,6 @@ export default defineConfig({
     types: schemaTypes,
   },
   plugins: [
-    // structureTool(),
     structureTool({
       structure: (S) =>
         S.list()
@@ -27,7 +26,7 @@ export default defineConfig({
           .items([
             // list all document types except 'siteSettings'
             ...S.documentTypeListItems().filter(
-              (item) => item.getId() !== "settings"
+              (item) => !["settings", "privacy"].includes(item.getId())
             ),
             S.divider(),
             S.listItem()
@@ -37,6 +36,14 @@ export default defineConfig({
                   .id("settings")
                   .schemaType("settings")
                   .documentId("settings")
+              ),
+            S.listItem()
+              .title("Privacy")
+              .child(
+                S.editor()
+                  .id("privacy")
+                  .schemaType("privacy")
+                  .documentId("privacy")
               ),
             // ...other items
           ]),
