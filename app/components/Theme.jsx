@@ -2,8 +2,8 @@ import { fetchSettings } from "../utilities";
 
 export async function Theme() {
   const defaultTheme = {
-    spacerScale: 32,
-    fontScale: 20,
+    spacerScale: 1,
+    fontScale: 1,
     lineHeight: 1.25,
     fontFamily: "Arial, sans-serif",
     backgroundColor: "#eff5f8",
@@ -31,9 +31,6 @@ export async function Theme() {
     const b = bigint & 255;
     return `${r} ${g} ${b}`;
   };
-
-  const pxToRem = (px) =>
-    `${(px / 16).toFixed(3).replace(/\.?0+$/, "")}rem`;
 
   // Build the custom CSS
   const customCss = `
