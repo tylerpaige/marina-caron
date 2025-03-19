@@ -56,9 +56,9 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'baseFontSize',
-      title: 'Base Font Size',
-      description: 'This is the font-size of normal text. The rest of the font-sizes are based on this value.',
+      name: 'fontScale',
+      title: 'Font Scale',
+      description: 'This adjusts the font-size of all text uniformly.',
       type: 'number',
     }),
     defineField({
@@ -73,8 +73,8 @@ export default defineType({
       description: "Be careful! You can only use fonts that are available on the user's computer. Be sure to use a comma separated list of fallback fonts, which probably will end with “sans-serif”.",
     }),
     defineField({
-      name: 'baseSpacer',
-      title: 'Base Spacer',
+      name: 'spacerScale',
+      title: 'Spacer Scale',
       description: 'This is the base spacing unit for the site. It is used to calculate the spacing between elements.',
       type: 'number',
     }),

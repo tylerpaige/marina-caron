@@ -59,13 +59,13 @@ module.exports = {
       Array.from({ length: numberOfSmallSizes }).forEach((_, i) => {
         const key = -1 * (numberOfSmallSizes - i);
         const coefficient = Math.pow(scale, -1 * (numberOfSmallSizes - i)).toFixed(3);
-        const fontSize = `calc(var(--base-font-size) * ${coefficient})`;
+        const fontSize = `calc(var(--font-scale) * var(--base-font-size) * ${coefficient})`;
         fontSizes[key] = [fontSize, 'var(--line-height)'];
       });
       Array.from({ length: numberOfLargeSizes }).forEach((_, i) => {
         const key = i;
         const coefficient = Math.pow(scale, i).toFixed(3);
-        const fontSize = `calc(var(--base-font-size) * ${coefficient})`;
+        const fontSize = `calc(var(--font-scale) * var(--base-font-size) * ${coefficient})`;
         fontSizes[key] = [fontSize, 'var(--line-height)'];
       });
       fontSizes["DEFAULT"] = fontSizes[0];
@@ -131,7 +131,7 @@ module.exports = {
       ];
       const intervals = tinyIntervals.concat(Array.from(Array(96).keys()));
       const spacing = Array.from(intervals).reduce((acc, interval) => {
-        const value = `calc(var(--gutter) * ${interval})`;
+        const value = `calc(var(--spacer-scale) * var(--gutter) * ${interval})`;
         acc[interval] = value;
         return acc;
       }, {});

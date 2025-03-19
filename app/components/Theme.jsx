@@ -2,8 +2,8 @@ import { fetchSettings } from "../utilities";
 
 export async function Theme() {
   const defaultTheme = {
-    baseSpacer: 32,
-    baseFontSize: 20,
+    spacerScale: 32,
+    fontScale: 20,
     lineHeight: 1.25,
     fontFamily: "Arial, sans-serif",
     backgroundColor: "#eff5f8",
@@ -38,8 +38,8 @@ export async function Theme() {
   // Build the custom CSS
   const customCss = `
     :root {
-      --gutter: ${pxToRem(settings.baseSpacer || defaultTheme.baseSpacer)};
-      --base-font-size: ${pxToRem(settings.baseFontSize || defaultTheme.baseFontSize)};
+      --spacer-scale: ${settings.spacerScale || defaultTheme.spacerScale};
+      --font-scale: ${settings.fontScale || defaultTheme.fontScale};
       --line-height: ${settings.lineHeight || defaultTheme.lineHeight};
       --font-family: ${settings.fontFamily || defaultTheme.fontFamily};
       --color-background: ${hexToRgb(settings.backgroundColor || defaultTheme.backgroundColor)};
